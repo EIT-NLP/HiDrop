@@ -16,10 +16,10 @@
 
 > <strong> HiDrop: Hierarchical Vision Token Reduction in MLLMs via Late Injection, Concave Pyramid Pruning, and Early Exit </strong>
 >
-> <a href="https://scholar.google.com/citations?hl=zh-CN&user=Ix9RD18AAAAJ" rel="nofollow">Hao Wu</a><sup>\*,1,2</sup>, 
-<a href="https://scholar.google.com/citations?hl=zh-CN&user=FwXKs_YAAAAJ" rel="nofollow">Yingqi Fan</a><sup>\*,1</sup>, 
+> <a href="https://scholar.google.com/citations?user=Ix9RD18AAAAJ" rel="nofollow">Hao Wu</a><sup>\*,1,2</sup>, 
+<a href="https://scholar.google.com/citations?user=FwXKs_YAAAAJ" rel="nofollow">Yingqi Fan</a><sup>\*,1</sup>, 
 Jinyang Dai<sup>3</sup>, 
-<a href="https://scholar.google.com/citations?user=Amv2QE8AAAAJ&hl=zh-CN" rel="nofollow">Junlong Tong</a><sup>1,2,4</sup>, 
+<a href="https://scholar.google.com/citations?user=Amv2QE8AAAAJ" rel="nofollow">Junlong Tong</a><sup>1,2,4</sup>, 
 <a href="https://yunpuma.github.io/" rel="nofollow">Yunpu Ma</a><sup>5</sup>, 
 <a href="https://chin-gyou.github.io/" rel="nofollow">Xiaoyu Shen</a><sup>†,1,2</sup> 
 >
@@ -37,7 +37,7 @@ Jinyang Dai<sup>3</sup>,
 > Contact: haowu.ai.research@gmail.com, xyshen@eitech.edu.cn
 
 
-If you find HiDrop useful for your research and applications, please consider citing:
+If you find this work useful for your research and applications, please consider citing:
 
 ```bibtex
 @misc{wu2026hidrophierarchicalvisiontoken,
