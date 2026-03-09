@@ -16,7 +16,7 @@
 
 > <strong> HiDrop: Hierarchical Vision Token Reduction in MLLMs via Late Injection, Concave Pyramid Pruning, and Early Exit </strong>
 >
-> <a href="https://scholar.google.com/citations?user=Ix9RD18AAAAJ" rel="nofollow">Hao Wu</a><sup>\*,1,2</sup>, 
+> <a href="https://harrisonwu42.github.io/" rel="nofollow">Hao Wu</a><sup>\*,1,2</sup>, 
 <a href="https://scholar.google.com/citations?user=FwXKs_YAAAAJ" rel="nofollow">Yingqi Fan</a><sup>\*,1</sup>, 
 Jinyang Dai<sup>3</sup>, 
 <a href="https://scholar.google.com/citations?user=Amv2QE8AAAAJ" rel="nofollow">Junlong Tong</a><sup>1,2,4</sup>, 
