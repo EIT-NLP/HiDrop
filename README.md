@@ -51,26 +51,41 @@ If you find this work useful for your research and applications, please consider
 }
 ```
 
-<!-- 🔥 📚 👀 🌟 ✨ ✒️ 🎯 📄 🙏 ✉️ 🤗 🌐 🚀 🔔 💡 🔧 ⭐️ -->
+<!-- 🔥 📚 👀 🌟 ✨ ✒️ 🎯 📄 🙏 ✉️ 🤗 🌐 🚀 🔔 💡 🔧 ⭐️ 🔍 🧠 📉-->
 
 
 ## 🔥News <a id="news"></a>
 
-- **[TODO]** Code, checkpoints, and documentation are being prepared and will be released soon.
-- **[2026.02.27]** The preprint is now published! 
+- **[2026.04.05]** Code, checkpoints, and documentation are released.
+- **[2026.02.27]** The preprint is published! 
+- **[2026.01.26]** 🎉 HiDrop is accepted by ICLR 2026.
 
 
-## 💡 Highlights (TODO) <a id="highlights"></a>
-
+## 💡 Highlights <a id="highlights"></a>
+- **Unveiling Hierarchical Processing Dynamics in MLLMs**: We reveal that MLLMs exhibit distinct layer-wise roles: shallow layers act as passive propagators, middle layers serve as sparse fusion hubs, and deep layers perform language-dominant reasoning.
+- **HiDrop**: A principled hierarchical vision token reduction framework that aligns with the intrinsic processing dynamics of MLLMs, jointly leveraging Late Injection, Concave Pyramid Pruning, and Early Exit for efficient computation.
+- **Late Injection & Early Exit**: First to introduce *Late Injection*, which skips unnecessary shallow-layer processing by injecting vision tokens only when fusion begins. Combined with Early Exit, HiDrop enables effective **depth-wise operation compression**, eliminating redundant computation across both shallow and deep layers.
+- **Concave Pyramid Pruning**: Proposes a non-uniform pruning strategy that aligns with MLLM fusion dynamics, enabling aggressive token reduction in middle layers where redundancy is highest, while preserving essential information in later stages.
+- **Strong Efficiency–Accuracy Trade-off**: HiDrop compresses ~90% of visual tokens with minimal performance degradation, achieving up to 1.72× training speedup and significantly reduced inference cost.
+- **Beyond Token Compression**: HiDrop highlights the importance of **operation compression** alongside token reduction, suggesting a new perspective for efficient MLLM design beyond conventional token-centric approaches.
 
 ## 📚 Contents <a id="contents"></a>
 
 - [News](#news): Latest updates, news, and announcements.
 - [Highlights](#highlights): Core insights and key features highlighted in this work.
+- [Preparation](#preparation): Environment setup, dependencies, and checkpoint/data preparation.
+- [Usage](#usage): Instructions for training and evaluation.
 - [License](#license): License information for this repository.
 - [Acknowledgments](#acknowledgments): Credits to projects and contributors that inspired or supported this work.
 - [Contact](#contact): Contact information for questions, feedback, or collaboration.
 - [Related Projects](#projects): Research projects from our group ([EIT-NLP](https://idt.eitech.edu.cn/nlp/)) related to MLLM compression.
+
+## 🔧 Preparation <a id="preparation"></a>
+
+
+## 🎯 Usage <a id="usage"></a>
+
+
 
 ## 📄 License <a id="license"></a>
 
