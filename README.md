@@ -37,6 +37,11 @@ Jinyang Dai<sup>3</sup>,
 > Contact: haowu.ai.research@gmail.com, xyshen@eitech.edu.cn
 
 
+<p align="center">
+  <img src="assets/hidrop.png" >
+</p>
+
+
 If you find this work useful for your research and applications, please consider citing:
 
 ```bibtex
