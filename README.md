@@ -62,12 +62,12 @@ If you find this work useful for your research and applications, please consider
 
 
 ## 💡 Highlights <a id="highlights"></a>
-- **Unveiling Hierarchical Processing Dynamics in MLLMs**: We reveal that MLLMs exhibit distinct layer-wise roles: shallow layers act as passive propagators, middle layers serve as sparse fusion hubs, and deep layers perform language-dominant reasoning.
-- **HiDrop**: A principled hierarchical vision token reduction framework that aligns with the intrinsic processing dynamics of MLLMs, jointly leveraging Late Injection, Concave Pyramid Pruning, and Early Exit for efficient computation.
-- **Late Injection & Early Exit**: First to introduce *Late Injection*, which skips unnecessary shallow-layer processing by injecting vision tokens only when fusion begins. Combined with Early Exit, HiDrop enables effective **depth-wise operation compression**, eliminating redundant computation across both shallow and deep layers.
-- **Concave Pyramid Pruning**: Proposes a non-uniform pruning strategy that aligns with MLLM fusion dynamics, enabling aggressive token reduction in middle layers where redundancy is highest, while preserving essential information in later stages.
-- **Strong Efficiency–Accuracy Trade-off**: HiDrop compresses ~90% of visual tokens with minimal performance degradation, achieving up to 1.72× training speedup and significantly reduced inference cost.
-- **Beyond Token Compression**: HiDrop highlights the importance of **operation compression** alongside token reduction, suggesting a new perspective for efficient MLLM design beyond conventional token-centric approaches.
+- **Unveiling Hierarchical Processing Dynamics in MLLMs**: Shallow layers act as passive propagators, middle layers as sparse fusion hubs, and deep layers as language-dominant reasoning modules.
+- **HiDrop**: A principled hierarchical framework aligning token reduction with MLLM dynamics, integrating Late Injection, Concave Pyramid Pruning, and Early Exit.
+- **Late Injection & Early Exit**: First to introduce *Late Injection*, injecting vision tokens only at the fusion stage to skip shallow-layer computation. Combined with Early Exit, enables **depth-wise operation compression**.
+- **Concave Pyramid Pruning**: A non-uniform, layer-aware pruning strategy that aggressively removes redundant tokens in middle layers while preserving critical information.
+- **Strong Efficiency–Accuracy Trade-off**: Compresses ~90% of visual tokens with minimal performance drop, achieving up to 1.72× training speedup and lower inference cost.
+- **Beyond Token Compression**: Highlights the importance of **operation compression** alongside token reduction, suggesting a more holistic paradigm for efficient MLLM design.
 
 ## 📚 Contents <a id="contents"></a>
 
