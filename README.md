@@ -82,10 +82,42 @@ If you find this work useful for your research and applications, please consider
 
 ## 🔧 Preparation <a id="preparation"></a>
 
+1. Clone this repository.
+```
+git clone https://github.com/EIT-NLP/HiDrop.git
+cd HiDrop
+```
+
+2. Install package.
+```
+conda create -n HiDrop python=3.10 -y
+conda activate HiDrop
+pip install --upgrade pip
+pip install -e . 
+pip install -e ".[train]" 
+
+pip install flash-attn==2.7.2.post1 --no-build-isolation
+# or download whl from https://github.com/Dao-AILab/flash-attention/releases, and then pip install
+pip install flash-attn.whl
+```
+
+3. (Optional) Download our [checkpoints](https://huggingface.co/HarrisonWu/HiDrop) for evaluation or quick reproduction.  
+
+4. To re-train HiDrop from scratch, please follow the complete training pipeline in [LLaVA](https://github.com/haotian-liu/LLaVA), including base model checkpoints and data preparation.
+
 
 ## 🎯 Usage <a id="usage"></a>
 
+### Training
 
+```
+```
+
+### Evaluation
+
+```
+
+```
 
 ## 📄 License <a id="license"></a>
 
