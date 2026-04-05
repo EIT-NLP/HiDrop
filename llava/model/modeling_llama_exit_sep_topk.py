@@ -724,7 +724,6 @@ class LlamaExitSepTopkModel(LlamaPreTrainedModel):
             if output_attentions:
                 all_self_attns += (layer_outputs[1],)
 
-            # TODO: >>> 实现：TopK --> Drop Vision Token >>>
             # rank & drop after specific layer, only drop in prefill stage when inference
             rank_layer = layer_idx + 1
             if rank_layer in self.layer_list:
@@ -781,7 +780,6 @@ class LlamaExitSepTopkModel(LlamaPreTrainedModel):
                 #         cur_position_ids = cur_position_ids - (cur_visual_length[idx] - next_visual_length[idx])
                 #         new_position_ids.append(cur_position_ids)  # 将调整后的位置ID添加到新列表中
                 #     position_ids = new_position_ids  # 用调整后的位置编码替换原始位置编码
-            # TODO: <<< 实现 <<<
 
         hidden_states = self.norm(hidden_states)
 
@@ -805,9 +803,7 @@ class LlamaExitSepTopkModel(LlamaPreTrainedModel):
             base_output.updated_labels = labels # 添加一个属性来传递修改后的标签
             return base_output
 
-    # TODO: [x]
     def pure_text_before_late_entry(self, features, position_ids, attention_mask, labels):
-        """ 当前只在Flash-Attn中写过 """
         _labels = labels
         _position_ids = position_ids
         _attention_mask = attention_mask
@@ -941,7 +937,6 @@ class LlamaExitSepTopkModel(LlamaPreTrainedModel):
         else:
             raise ValueError(f"Unexpected tokenizer_padding_side: {self.config.tokenizer_padding_side}")
 
-    # TODO: [x]
     def late_entry(self, features, position_ids, attention_mask, original_features, original_attention_mask, original_labels):
         _position_ids = position_ids
         _attention_mask = attention_mask
@@ -1024,7 +1019,6 @@ class LlamaExitSepTopkModel(LlamaPreTrainedModel):
         else:
             raise ValueError(f"Unexpected tokenizer_padding_side: {self.config.tokenizer_padding_side}")
 
-    # TODO: [x]
     def rank_drop(self, cur_num, rank_layer, features, position_ids, attention_mask, labels, total_seq_token_len):
         # step1: 初始化与参数准备
         _labels = labels
@@ -1284,7 +1278,6 @@ class LlamaExitSepTopkModel(LlamaPreTrainedModel):
         else:
             raise ValueError(f"Unexpected tokenizer_padding_side: {self.config.tokenizer_padding_side}")
 
-    # TODO: [x]
     def early_exit(self, features, attention_mask, noim_position_ids, noim_attention_mask, noim_labels):
         _attention_mask = attention_mask
 
@@ -1500,7 +1493,7 @@ class LlamaForCausalLM(LlamaPreTrainedModel):
             # input)
             if attention_mask is not None and attention_mask.shape[1] > input_ids.shape[1]:
                 input_ids = input_ids[:, -(attention_mask.shape[1] - past_length):]
-                if past_key_values is not None: ### TODO: 新增
+                if past_key_values is not None:
                     """ 当存在`past_key_values`（已缓存的键值对）时，这个条件将输入标记进一步裁剪为仅保留最后一个标记
                     在自回归生成过程中，使用过去的缓存时，模型只需要预测下一个单一标记
                     """

@@ -5,19 +5,21 @@ IFS=',' read -ra GPULIST <<< "$gpu_list"
 
 CHUNKS=${#GPULIST[@]}
 
-MODEL="${MODEL:-llava-v1.5-7b}"
-OUTPUT="${OUTPUT:-llava-v1.5-7b}"
-LATE_ENTRY_LAYER="${LATE_ENTRY_LAYER:-99}"
-EARLY_EXIT_LAYER="${EARLY_EXIT_LAYER:-99}"
-LAYER_LIST="${LAYER_LIST:-[8,16,24]}"
-IMAGE_TOKEN_KEEP_LIST="${IMAGE_TOKEN_KEEP_LIST:-[288,144,72]}"
+MODEL="${MODEL:-llava-v1.5-7b-exit-topk-Tok48}"
+OUTPUT="${OUTPUT:-llava-v1.5-7b-exit-topk-Tok48}"
+#LATE_ENTRY_LAYER="${LATE_ENTRY_LAYER:-99}"
+#EARLY_EXIT_LAYER="${EARLY_EXIT_LAYER:-99}"
+#LAYER_LIST="${LAYER_LIST:-[8,16,24]}"
+#IMAGE_TOKEN_KEEP_LIST="${IMAGE_TOKEN_KEEP_LIST:-[288,144,72]}"
+LATE_ENTRY_LAYER="${LATE_ENTRY_LAYER:-9}"
+EARLY_EXIT_LAYER="${EARLY_EXIT_LAYER:-25}"
+LAYER_LIST="${LAYER_LIST:-[10,14,16,18]}"
+IMAGE_TOKEN_KEEP_LIST="${IMAGE_TOKEN_KEEP_LIST:-[87,10,5,1]}"
 
-CKPTDIR="/hkfs/work/workspace/scratch/tum_yvc3016-compression/workspace/ckpts/ckpts-topk"
-DATADIR="../../datasets/LLaVA-1.5-dataset"
 
 for IDX in $(seq 0 $((CHUNKS-1))); do
     CUDA_VISIBLE_DEVICES=${GPULIST[$IDX]} python -m llava.eval.model_vqa_loader \
-        --model-path $CKPTDIR/$MODEL \
+        --model-path ./checkpoints/$MODEL \
         --question-file $DATADIR/eval/seed_bench/llava-seed-bench-img.jsonl \
         --image-folder $DATADIR/eval/seed_bench \
         --answers-file ./playground/data/eval/seed_bench/answers/$OUTPUT/${CHUNKS}_${IDX}.jsonl \

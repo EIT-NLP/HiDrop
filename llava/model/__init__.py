@@ -7,7 +7,6 @@ try:
 
     # Topk
     from .language_model.llava_llama_pdrop import LlavaLlamaPDropForCausalLM, LlavaPDropConfig
-    from .language_model.llava_llama_topk import LlavaLlamaTopkForCausalLM, LlavaTopkConfig
 
     # Exit
     from .language_model.llava_llama_exit import LlavaLlamaExitForCausalLM, LlavaExitConfig # 不连续编码

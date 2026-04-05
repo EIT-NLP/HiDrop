@@ -108,16 +108,9 @@ pip install flash-attn.whl
 
 ## 🎯 Usage <a id="usage"></a>
 
-### Training
+-  Training: see [scripts](https://github.com/EIT-NLP/HiDrop/tree/main/scripts/v1_5/hidrop_train) for details.
 
-```
-```
-
-### Evaluation
-
-```
-
-```
+- Evaluation: see [scripts](https://github.com/EIT-NLP/HiDrop/tree/main/scripts/v1_5/hidrop_eval) for details.
 
 ## 📄 License <a id="license"></a>
 

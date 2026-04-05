@@ -5,22 +5,24 @@ IFS=',' read -ra GPULIST <<< "$gpu_list"
 
 CHUNKS=${#GPULIST[@]}
 
-MODEL="${MODEL:-llava-v1.5-7b}"
-OUTPUT="${OUTPUT:-llava-v1.5-7b}"
-LATE_ENTRY_LAYER="${LATE_ENTRY_LAYER:-99}"
-EARLY_EXIT_LAYER="${EARLY_EXIT_LAYER:-99}"
-LAYER_LIST="${LAYER_LIST:-[8,16,24]}"
-IMAGE_TOKEN_KEEP_LIST="${IMAGE_TOKEN_KEEP_LIST:-[288,144,72]}"
+MODEL="${MODEL:-llava-v1.5-7b-exit-topk-Tok48}"
+OUTPUT="${OUTPUT:-llava-v1.5-7b-exit-topk-Tok48}"
+#LATE_ENTRY_LAYER="${LATE_ENTRY_LAYER:-99}"
+#EARLY_EXIT_LAYER="${EARLY_EXIT_LAYER:-99}"
+#LAYER_LIST="${LAYER_LIST:-[8,16,24]}"
+#IMAGE_TOKEN_KEEP_LIST="${IMAGE_TOKEN_KEEP_LIST:-[288,144,72]}"
+LATE_ENTRY_LAYER="${LATE_ENTRY_LAYER:-9}"
+EARLY_EXIT_LAYER="${EARLY_EXIT_LAYER:-25}"
+LAYER_LIST="${LAYER_LIST:-[10,14,16,18]}"
+IMAGE_TOKEN_KEEP_LIST="${IMAGE_TOKEN_KEEP_LIST:-[87,10,5,1]}"
 
-SPLIT="llava_gqa_testdev_balanced"
-CKPTDIR="/hkfs/work/workspace/scratch/tum_yvc3016-compression/workspace/ckpts/ckpts-topk"
-DATADIR="../../datasets/LLaVA-1.5-dataset"
-GQADIR="../../datasets/LLaVA-1.5-dataset/eval/gqa/data"
+DATADIR="./playground/data/LLaVA-1.5-dataset"
+GQADIR="./playground/data/LLaVA-1.5-dataset/eval/gqa/data"
 
 for IDX in $(seq 0 $((CHUNKS-1))); do
     CUDA_VISIBLE_DEVICES=${GPULIST[$IDX]} python -m llava.eval.model_vqa_loader \
-        --model-path $CKPTDIR/$MODEL \
-        --question-file $DATADIR/eval/gqa/$SPLIT.jsonl \
+        --model-path ./checkpoints/$MODEL \
+        --question-file $DATADIR/eval/gqa/llava_gqa_testdev_balanced.jsonl \
         --image-folder $DATADIR/eval/gqa/data/images \
         --answers-file ./playground/data/eval/gqa/answers/$SPLIT/$OUTPUT/${CHUNKS}_${IDX}.jsonl \
         --num-chunks $CHUNKS \
